@@ -1,11 +1,11 @@
 import 'dart:ui';
 
+import 'package:animated_app/screens/widgets/animated_btn.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:rive/rive.dart';
 
-import 'onboarding/components/animated_btn.dart';
 import 'widgets/custom_sign_in_dialog.dart';
 import 'widgets/sign_in_form.dart';
 

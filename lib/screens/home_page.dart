@@ -4,60 +4,63 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:rive/rive.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: true,
-      extendBody: true,
       body: SafeArea(
-          bottom: false,
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(22.0),
-                  child: Text(
-                    'Courses',
-                    style: Theme.of(context).textTheme.headlineMedium!.copyWith(
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold,
-                        ),
-                  ),
+        bottom: false,
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(
+                height: 32,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(22.0),
+                child: Text(
+                  'Courses',
+                  style: Theme.of(context).textTheme.headlineMedium!.copyWith(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                      ),
                 ),
-                SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    children: [
-                      ...allCourses
-                          .map((e) => Padding(
-                                padding:
-                                    const EdgeInsets.only(left: 22.0, right: 2),
-                                child: CourseCard(course: e),
-                              ))
-                          .toList(),
-                    ],
-                  ),
+              ),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    ...allCourses
+                        .map((e) => Padding(
+                              padding:
+                                  const EdgeInsets.only(left: 22.0, right: 2),
+                              child: CourseCard(course: e),
+                            ))
+                        .toList(),
+                  ],
                 ),
-                Padding(
-                  padding: EdgeInsets.symmetric(vertical: 20, horizontal: 26),
-                  child: Text(
-                    'Recent',
-                    style: Theme.of(context).textTheme.headlineSmall!.copyWith(
-                          fontWeight: FontWeight.bold,
-                        ),
-                  ),
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(vertical: 20, horizontal: 26),
+                child: Text(
+                  'Recent',
+                  style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                        fontWeight: FontWeight.bold,
+                      ),
                 ),
-                ...recentCourses.map((e) => Padding(
-                      padding: const EdgeInsets.only(
-                          left: 20.0, right: 20, bottom: 20),
-                      child: SecondaryCourseCard(course: e),
-                    ))
-              ],
-            ),
-          )),
+              ),
+              ...recentCourses.map((e) => Container(
+                    margin: const EdgeInsets.only(top: 6),
+                    padding: const EdgeInsets.only(
+                      left: 20.0,
+                      right: 20,
+                    ),
+                    child: SecondaryCourseCard(course: e),
+                  ))
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
@@ -71,7 +74,7 @@ class SecondaryCourseCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 24, vertical: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 20),
       decoration: BoxDecoration(
           color: course.bgColor, borderRadius: BorderRadius.circular(20)),
       child: Row(children: [
@@ -111,7 +114,7 @@ class SecondaryCourseCard extends StatelessWidget {
           child: Transform.scale(
             scale: 1.5,
             child: RiveAnimation.asset(
-              'assets/RiveAssets/2063-4080-flutter-puzzle-hack-project.riv',
+              'assets/RiveAssets/onboard_animation.riv',
             ),
           ),
         )

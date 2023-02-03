@@ -1,5 +1,7 @@
 import 'package:animated_app/screens/entry_point.dart';
+import 'package:animated_app/screens/home_page.dart';
 import 'package:animated_app/screens/onBoarding.dart';
+import 'package:animated_app/screens/side_menu.dart';
 import 'package:flutter/material.dart';
 
 void main() {
